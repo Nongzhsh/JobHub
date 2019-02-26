@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "Pages/JobHub/index.min.css",
+    "inputFiles": [
+      "Pages/JobHub/index.css"
+    ]
+  },
+  {
+    "outputFileName": "Pages/JobHub/index.min.js",
+    "inputFiles": [
+      "Pages/JobHub/index.js"
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <RootNamespace>Nongzhsh.JobHub</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nongzhsh.JobHub.Domain\Nongzhsh.JobHub.Domain.csproj" />
+    <PackageReference Include="AngleSharp" Version="0.11.0" />
+    <PackageReference Include="RestSharp" Version="106.6.8" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="0.14.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="0.14.0" />
+    <PackageReference Include="Volo.Abp.Caching" Version="0.14.0" />
+  </ItemGroup>
+
+</Project>
