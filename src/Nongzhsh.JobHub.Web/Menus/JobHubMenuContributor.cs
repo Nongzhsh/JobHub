@@ -24,8 +24,6 @@ namespace Nongzhsh.JobHub.Menus
 
             context.Menu.Items.Insert(0, new ApplicationMenuItem("JobHub.Home", l["Menu:Home"], "/"));
 
-            //context.Menu.AddItem(new ApplicationMenuItem("JobHub.JobHub", l["Menu:JobHub"], "/JobHub"));
-
             var authorizationService = context.ServiceProvider.GetRequiredService<IAuthorizationService>();
             if(!await authorizationService.IsGrantedAsync(BloggingPermissions.Blogs.Default))
             {
@@ -36,6 +34,8 @@ namespace Nongzhsh.JobHub.Menus
                 var rootMenuItem = new ApplicationMenuItem("Account", l["Login"], "/Account/Login");
                 context.Menu.AddItem(rootMenuItem);
             }
+
+            context.Menu.AddItem(new ApplicationMenuItem("JobHub.OnGithub", l["OnGithub"], "https://github.com/Nongzhsh/JobHub"));
         }
     }
 }
