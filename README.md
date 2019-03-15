@@ -9,4 +9,4 @@
 
 # 截图
 
-![title](https://raw.githubusercontent.com/Nongzhsh/Images/master/GitNote/2019/03/15/GIF-1552638617867.gif?token=AGsS6V0nAWDyySyYZ15N987KSpCk7-iYks5ci2LtwA%3D%3D)
+[Imgur](https://i.imgur.com/B2IIk3r.gifv)
