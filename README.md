@@ -9,4 +9,5 @@
 
 # 截图
 
-[Imgur](https://i.imgur.com/B2IIk3r.gifv)
+![GIF.gif](https://i.imgur.com/B2IIk3r.gif)
+
