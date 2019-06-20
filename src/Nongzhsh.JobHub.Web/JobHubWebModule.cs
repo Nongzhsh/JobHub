@@ -35,6 +35,7 @@ using Volo.Abp.UI.Navigation;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.PermissionManagement;
 using Volo.Abp.EntityFrameworkCore;
+using Volo.Abp.TenantManagement.Web;
 using Volo.Blogging;
 using Volo.Blogging.Files;
 using Volo.Blogging.Localization;
@@ -48,6 +49,7 @@ namespace Nongzhsh.JobHub
         typeof(AbpIdentityWebModule),
         typeof(AbpAccountWebModule),
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
+        typeof(AbpTenantManagementWebModule),
         typeof(BloggingApplicationModule),
         typeof(BloggingWebModule)
         )]
@@ -87,7 +89,6 @@ namespace Nongzhsh.JobHub
             Configure<BlogFileOptions>(options =>
             {
                 options.FileUploadLocalFolder = Path.Combine(hostingEnvironment.WebRootPath, "files");
-                options.FileUploadUrlRoot = "/files/";
             });
         }
              
@@ -216,6 +217,16 @@ namespace Nongzhsh.JobHub
 
         private static void SeedDatabase(ApplicationInitializationContext context)
         {
+            //using (var scope = context.ServiceProvider.CreateScope())
+            //{
+            //    AsyncHelper.RunSync(async () =>
+            //    {
+            //        await scope.ServiceProvider
+            //            .GetRequiredService<IDataSeeder>()
+            //            .SeedAsync();
+            //    });
+            //}
+
             using (var scope = context.ServiceProvider.CreateScope())
             {
                 AsyncHelper.RunSync(async () =>

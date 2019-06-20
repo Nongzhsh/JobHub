@@ -1,17 +1,17 @@
 ﻿using System.Threading.Tasks;
+using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
-using Volo.Abp.Identity;
 using Volo.Abp.Threading;
 
 namespace Nongzhsh.JobHub
 {
     public class JobHubTestDataBuilder : ITransientDependency
     {
-        private readonly IIdentityDataSeeder _identityDataSeeder;
+        private readonly IDataSeeder _dataSeeder;
 
-        public JobHubTestDataBuilder(IIdentityDataSeeder identityDataSeeder)
+        public JobHubTestDataBuilder(IDataSeeder dataSeeder)
         {
-            _identityDataSeeder = identityDataSeeder;
+            _dataSeeder = dataSeeder;
         }
 
         public void Build()
@@ -21,7 +21,7 @@ namespace Nongzhsh.JobHub
 
         public async Task BuildInternalAsync()
         {
-            await _identityDataSeeder.SeedAsync("1q2w3E*");
+            await _dataSeeder.SeedAsync();
         }
     }
 }
