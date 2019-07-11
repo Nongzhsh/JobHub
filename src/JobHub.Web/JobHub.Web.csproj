@@ -12,6 +12,7 @@
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
+    <UserSecretsId>bbdade7f-b5f8-4636-a21d-3bb4d62c5e9f</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
