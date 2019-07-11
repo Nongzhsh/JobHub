@@ -252,4 +252,7 @@ paket-files/
 *.sln.iml
 
 # JobHub
-src/Nongzhsh.JobHub.Web/Logs/logs.txt
+src/JobHub.Web/Logs/*
+src/JobHub.Web.Host/Logs/*
+src/JobHub.IdentityServer/Logs/*
+src/JobHub.HttpApi.Host/Logs/*
