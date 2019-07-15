@@ -1,4 +1,4 @@
-﻿using JobHub.Localization;
+using JobHub.Localization;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.FeatureManagement;
@@ -36,7 +36,7 @@ namespace JobHub
             Configure<AbpLocalizationOptions>(options =>
             {
                 options.Resources
-                    .Add<JobHubResource>("en")
+                    .Add<JobHubResource>("zh-Hans")
                     .AddBaseTypes(typeof(AbpValidationResource))
                     .AddVirtualJson("/Localization/JobHub");
             });

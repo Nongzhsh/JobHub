@@ -1,10 +1,12 @@
-﻿using System.IO;
+using System.IO;
 using Localization.Resources.AbpUi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using JobHub.EntityFrameworkCore;
+using JobHub.JobSearch.Liepin;
+using JobHub.JobSearch.Qiancheng;
 using JobHub.Localization;
 using JobHub.MultiTenancy;
 using JobHub.Web.Menus;
@@ -23,6 +25,7 @@ using Volo.Abp.AutoMapper;
 using Volo.Abp.Identity.Web;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
+using Volo.Abp.Modularity.PlugIns;
 using Volo.Abp.PermissionManagement.Web;
 using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.Ui.Navigation.Urls;
@@ -33,6 +36,8 @@ using Volo.Abp.VirtualFileSystem;
 namespace JobHub.Web
 {
     [DependsOn(
+        typeof(JobHubJobSearchLiepinModule),
+        typeof(JobHubJobSearchQianchengModule),
         typeof(JobHubHttpApiModule),
         typeof(JobHubApplicationModule),
         typeof(JobHubEntityFrameworkCoreDbMigrationsModule),
@@ -73,6 +78,9 @@ namespace JobHub.Web
             ConfigureNavigationServices();
             ConfigureAutoApiControllers();
             ConfigureSwaggerServices(context.Services);
+
+            // TODO: abp 的插件机制好像没有完善，它无法加载插件所依赖的包，先暂停插件模式
+            // ConfigurePlugIns(context);
         }
 
         private void ConfigureUrls(IConfigurationRoot configuration)
@@ -166,6 +174,15 @@ namespace JobHub.Web
                     options.CustomSchemaIds(type => type.FullName);
                 }
             );
+        }
+
+        private void ConfigurePlugIns(ServiceConfigurationContext context)
+        {
+            var hostingEnvironment = context.Services.GetHostingEnvironment();
+            context.Services.AddApplication<JobHubWebModule>(options =>
+            {
+                options.PlugInSources.AddFolder(Path.Combine(hostingEnvironment.ContentRootPath, "PlugIns"));
+            });
         }
 
         public override void OnApplicationInitialization(ApplicationInitializationContext context)

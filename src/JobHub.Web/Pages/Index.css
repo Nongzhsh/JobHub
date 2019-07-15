@@ -1,3 +1,27 @@
-﻿body {
-    
+#topBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+    #topBtn:hover {
+        background-color: #555;
+    }
+
+.jobItem:hover, .jobItem:active {
+    background-color: #eed1b6;
+}
+
+.margin-left-10 {
+    margin-left: 10px !important;
 }

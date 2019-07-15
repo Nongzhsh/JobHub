@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JobHub.Domain\JobHub.Domain.csproj" />
     <ProjectReference Include="..\JobHub.Application.Contracts\JobHub.Application.Contracts.csproj" />
+    <ProjectReference Include="..\JobHub.JobSearch.Contracts\JobHub.JobSearch.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

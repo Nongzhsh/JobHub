@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.Domain", "src\JobHub.Domain\JobHub.Domain.csproj", "{554AD327-6DBA-4F8F-96F8-81CE7A0C863F}"
 EndProject
@@ -37,7 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.Domain.Tests", "test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.HttpApi.Client.ConsoleTestApp", "test\JobHub.HttpApi.Client.ConsoleTestApp\JobHub.HttpApi.Client.ConsoleTestApp.csproj", "{EF480016-9127-4916-8735-D2466BDBC582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHub.DbMigrator", "src\JobHub.DbMigrator\JobHub.DbMigrator.csproj", "{AA94D832-1CCC-4715-95A9-A483F23A1A5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.DbMigrator", "src\JobHub.DbMigrator\JobHub.DbMigrator.csproj", "{AA94D832-1CCC-4715-95A9-A483F23A1A5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "plugins", "plugins", "{1A7FB10F-7990-460B-906B-4F114706FA67}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Contracts", "src\JobHub.JobSearch.Contracts\JobHub.JobSearch.Contracts.csproj", "{6E715CCF-3CD2-4533-B405-E6CACBD1A9D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Qiancheng", "plugins\JobHub.JobSearch.Qiancheng\JobHub.JobSearch.Qiancheng.csproj", "{FD5081F1-9D5E-446C-B35B-9E462058FCDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Liepin", "plugins\JobHub.JobSearch.Liepin\JobHub.JobSearch.Liepin.csproj", "{ADAE379A-29D6-4D95-91AB-F415EF4017FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +117,18 @@ Global
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E715CCF-3CD2-4533-B405-E6CACBD1A9D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E715CCF-3CD2-4533-B405-E6CACBD1A9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E715CCF-3CD2-4533-B405-E6CACBD1A9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E715CCF-3CD2-4533-B405-E6CACBD1A9D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD5081F1-9D5E-446C-B35B-9E462058FCDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD5081F1-9D5E-446C-B35B-9E462058FCDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD5081F1-9D5E-446C-B35B-9E462058FCDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD5081F1-9D5E-446C-B35B-9E462058FCDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAE379A-29D6-4D95-91AB-F415EF4017FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAE379A-29D6-4D95-91AB-F415EF4017FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAE379A-29D6-4D95-91AB-F415EF4017FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAE379A-29D6-4D95-91AB-F415EF4017FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +150,9 @@ Global
 		{E512F4D9-9375-480F-A2F6-A46509F9D824} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{EF480016-9127-4916-8735-D2466BDBC582} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{6E715CCF-3CD2-4533-B405-E6CACBD1A9D3} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{FD5081F1-9D5E-446C-B35B-9E462058FCDF} = {1A7FB10F-7990-460B-906B-4F114706FA67}
+		{ADAE379A-29D6-4D95-91AB-F415EF4017FC} = {1A7FB10F-7990-460B-906B-4F114706FA67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

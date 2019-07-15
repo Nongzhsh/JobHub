@@ -1,6 +1,14 @@
-﻿@page
+@page "{currentPage?}"
+@* TODO: _ViewImports.cshtml 已经添加，却是无效的？*@
+@addTagHelper *, JobHub.Web
 @inherits JobHub.Web.Pages.JobHubPage
+@using JobHub.Web.Extensions
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
 @model JobHub.Web.Pages.IndexModel
+@{
+    ViewBag.PageTitle = "JobHub";
+}
+
 @section styles {
     <abp-style-bundle>
         <abp-style src="/Pages/Index.css" />
@@ -11,15 +19,67 @@
         <abp-script src="/Pages/Index.js" />
     </abp-script-bundle>
 }
-<abp-card>
-    <abp-card-header>@L["Welcome"]</abp-card-header>
-    <abp-card-body>
-        <p>@L["LongWelcomeMessage"]</p>
-        @if (!CurrentUser.IsAuthenticated)
-        {
-            <p><a abp-button="Primary" href="/Account/Login"><i class="fa fa-sign-in"></i> @L["Login"]</a></p>
-        }
-        <hr />
-        <p class="text-right"><a href="https://abp.io?ref=tmpl" target="_blank">abp.io</a></p>
-    </abp-card-body>
-</abp-card>
+
+<form method="get" id="SearchForm">
+    <h2>JobHub</h2>
+    <div class="row">
+        <div class="col-md-auto">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="@L["Keyword"].Value" asp-for="Keyword" />
+                <span asp-validation-for="Keyword"></span>
+            </div>
+        </div>
+        <div class="col-md-auto">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="@L["City"].Value" asp-for="City" />
+            </div>
+        </div>
+        <div class="col-md-auto">
+            <abp-button button-type="Primary" id="search" type="button" text="@L["Search"].Value" busy-text="@L["Search"].Value ..." />
+            <abp-button button-type="Warning" id="clearCache" data-cache-key="@Model.Jobs.CacheKey" type="button" text="@L["ClearCache"].Value" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-auto">
+            <abp-radio asp-for="@Model.JobSource" asp-items="@Model.JobSourceItems" inline="true" />
+        </div>
+    </div>
+</form>
+
+<hr>
+
+@for (var i = 0; i < Model.Jobs.Items.Count; i++)
+{
+    var job = Model.Jobs.Items[i];
+    <div class="row jobItem text-muted">
+        <div class="col" data-url="@job.Url">
+            <h5 class="d-inline">
+                <a href="@job.Url" target="_blank">@job.Position</a>
+                <span class="badge badge-warning">@job.Salary</span>
+            </h5>
+            <h6 class="d-inline">
+                <span> @job.Company</span>
+            </h6>
+            <span class="badge badge-secondary">@job.Education</span>
+            <span class="badge badge-secondary">@job.WorkingYears</span>
+            <cite class="badge badge-secondary">@job.Address</cite>
+            <time class="badge badge-light" title="@job.PublishedTime">@job.PublishedTime</time>
+        </div>
+    </div>
+    <hr>
+}
+@if (Model.Jobs.Items.Any())
+{
+    <my-paginator model="@Model.PagerModel" show-info="false" asp-route-keyword="@Model.Keyword" asp-route-city="@Model.City" asp-route-jobSource="@Model.JobSource"></my-paginator>
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">@L["NoResult"].Value</h4>
+        <p>@L["NoResultDescription"].Value</p>
+    </div>
+}
+<hr>
+<abp-button id="topBtn" title="Go to top">Top</abp-button>
+
