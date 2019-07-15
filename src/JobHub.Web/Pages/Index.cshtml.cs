@@ -66,11 +66,5 @@ namespace JobHub.Web.Pages
 
             PagerModel = new PagerModel(Jobs.TotalCount, 0, input.PageIndex, input.PageSize, "/Index");
         }
-
-        public async Task<IActionResult> OnPostClearCacheAsync(string cacheKey)
-        {
-            await _jobSearchAppService.ClearCacheAsync(cacheKey);
-            return RedirectToPage("Index", new { JobSource, Keyword, City });
-        }
     }
 }

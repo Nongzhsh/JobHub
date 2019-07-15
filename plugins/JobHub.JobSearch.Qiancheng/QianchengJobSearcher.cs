@@ -98,7 +98,6 @@ namespace JobHub.JobSearch.Qiancheng
             {
                 if (!CityDictionary.Any())
                 {
-
                     var file = _virtualFileProvider.GetFileInfo("/JobHub/JobSearch/Qiancheng/city-list.json");
                     var fileContent = file.ReadAsString();
                     var list = _jsonSerializer.Deserialize<IDictionary<string, string>>(fileContent);
