@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Qiancheng"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Liepin", "plugins\JobHub.JobSearch.Liepin\JobHub.JobSearch.Liepin.csproj", "{ADAE379A-29D6-4D95-91AB-F415EF4017FC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Zhilian", "plugins\JobHub.JobSearch.Zhilian\JobHub.JobSearch.Zhilian.csproj", "{05C57B2D-CD1A-4F1F-B55E-DF5A725B0F79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{ADAE379A-29D6-4D95-91AB-F415EF4017FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADAE379A-29D6-4D95-91AB-F415EF4017FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADAE379A-29D6-4D95-91AB-F415EF4017FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C57B2D-CD1A-4F1F-B55E-DF5A725B0F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C57B2D-CD1A-4F1F-B55E-DF5A725B0F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C57B2D-CD1A-4F1F-B55E-DF5A725B0F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C57B2D-CD1A-4F1F-B55E-DF5A725B0F79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,6 +159,7 @@ Global
 		{6E715CCF-3CD2-4533-B405-E6CACBD1A9D3} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{FD5081F1-9D5E-446C-B35B-9E462058FCDF} = {1A7FB10F-7990-460B-906B-4F114706FA67}
 		{ADAE379A-29D6-4D95-91AB-F415EF4017FC} = {1A7FB10F-7990-460B-906B-4F114706FA67}
+		{05C57B2D-CD1A-4F1F-B55E-DF5A725B0F79} = {1A7FB10F-7990-460B-906B-4F114706FA67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

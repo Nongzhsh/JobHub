@@ -44,6 +44,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\plugins\JobHub.JobSearch.Liepin\JobHub.JobSearch.Liepin.csproj" />
     <ProjectReference Include="..\..\plugins\JobHub.JobSearch.Qiancheng\JobHub.JobSearch.Qiancheng.csproj" />
+    <ProjectReference Include="..\..\plugins\JobHub.JobSearch.Zhilian\JobHub.JobSearch.Zhilian.csproj" />
     <ProjectReference Include="..\JobHub.Application\JobHub.Application.csproj" />
     <ProjectReference Include="..\JobHub.HttpApi\JobHub.HttpApi.csproj" />
     <ProjectReference Include="..\JobHub.EntityFrameworkCore.DbMigrations\JobHub.EntityFrameworkCore.DbMigrations.csproj" />

@@ -47,20 +47,20 @@ namespace JobHub.JobSearch.Qiancheng
 
         public async Task<JobListResultDto> SearchAsync(GetJobsInput input)
         {
-            var cityCodes = await GetCityCodes(input.City);
-            var request = new RestRequest();
-            //request.AddParameter("salary", "*"); //TODO: 实现自定义
-            request.AddParameter("keyword", input.Keyword);
-            request.AddParameter("jobarea", cityCodes);
-            request.AddParameter("curr_page", input.PageIndex);
-
-            // pageSize 无意义，前程无忧固定的 PageSize，
-            // 但我们需要更新分页组件，所以需要重新设置 input.PageSize = 50
-            input.PageSize = 50;
-            request.AddParameter("pageSize", input.PageSize);
-
             try
             {
+                var cityCodes = await GetCityCodes(input.City);
+                var request = new RestRequest();
+                //request.AddParameter("salary", "*"); //TODO: 实现自定义
+                request.AddParameter("keyword", input.Keyword);
+                request.AddParameter("jobarea", cityCodes);
+                request.AddParameter("curr_page", input.PageIndex);
+
+                // pageSize 无意义，前程无忧固定的 PageSize，
+                // 但我们需要更新分页组件，所以需要重新设置 input.PageSize = 50
+                input.PageSize = 50;
+                request.AddParameter("pageSize", input.PageSize);
+
                 const string baseUrl = "https://search.51job.com/jobsearch/search_result.php";
                 _client.BaseUrl = new Uri(baseUrl);
                 var response = await _client.ExecuteGetTaskAsync<dynamic>(request);

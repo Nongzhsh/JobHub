@@ -67,7 +67,7 @@ namespace JobHub.JobSearch.Liepin
                 request.AddParameter("pageSize", input.PageSize);
 
                 _client.BaseUrl = new Uri("http://www.liepin.com/zhaopin/");
-                var response = await _client.ExecuteGetTaskAsync<dynamic>(request);
+                var response = await _client.ExecuteGetTaskAsync(request);
                 var htmlString = response.Content;
                 var htmlParser = new HtmlParser();
                 using (var document = htmlParser.ParseDocument(htmlString))
@@ -159,6 +159,7 @@ namespace JobHub.JobSearch.Liepin
 
             input.ExtraProperties["RequestParams"] = _jsonSerializer.Serialize(@params);
         }
+
         public class DataInfo
         {
             public string ckid { get; set; }
