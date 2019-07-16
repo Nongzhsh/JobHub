@@ -128,7 +128,7 @@ namespace JobHub.JobSearch.Lagou
             catch (Exception e)
             {
                 _logger.LogException(e);
-                throw new BusinessException("Lagou_001", e.Message, e.StackTrace, e.InnerException);
+                return new JobListResultDto();
             }
         }
     }

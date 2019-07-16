@@ -30,6 +30,7 @@ using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Modularity.PlugIns;
 using Volo.Abp.PermissionManagement.Web;
+using Volo.Abp.Settings;
 using Volo.Abp.TenantManagement.Web;
 using Volo.Abp.Ui.Navigation.Urls;
 using Volo.Abp.UI;
@@ -223,6 +224,8 @@ namespace JobHub.Web
             });
             app.UseAuditing();
             app.UseMvcWithDefaultRouteAndArea();
+
+            app.ApplicationServices.GetService<ISettingDefinitionManager>(). Get(LocalizationSettingNames.DefaultLanguage).DefaultValue = "zh-Hans";
         }
     }
 }

@@ -86,7 +86,7 @@ namespace JobHub.JobSearch.Boss
             catch (Exception e)
             {
                 _logger.LogException(e);
-                throw new BusinessException("Boss_001", e.Message, e.StackTrace, e.InnerException);
+                return new JobListResultDto();
             }
         }
 

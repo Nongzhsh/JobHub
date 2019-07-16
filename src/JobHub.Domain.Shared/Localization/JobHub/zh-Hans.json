@@ -5,6 +5,8 @@
     "City": "城市/区域",
     "Search": "搜索",
     "ClearCache": "清除缓存",
+    "NoResult": "无查询结果",
+    "NoResultDescription": "搜索不到合适的结果，请重新编辑您的查询关键词。",
     "Menu:Home": "首页",
     "Welcome": "欢迎",
     "LongWelcomeMessage": "欢迎来到该应用程序. 这是一个基于ABP框架的启动项目. 有关更多信息, 请访问 cn.abp.io."

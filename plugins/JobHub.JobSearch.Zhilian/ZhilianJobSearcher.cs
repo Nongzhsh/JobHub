@@ -92,7 +92,7 @@ namespace JobHub.JobSearch.Zhilian
             catch (Exception e)
             {
                 _logger.LogException(e);
-                throw new BusinessException("Zhilian_001", e.Message, e.StackTrace, e.InnerException);
+                return new JobListResultDto();
             }
         }
 
