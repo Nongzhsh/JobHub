@@ -33,12 +33,8 @@ $(function () {
         });
     });
 
-    $('#clearCache').click(function () {
-
-    });
-
     function ReSearch() {
         var form = $('#SearchForm').serializeFormToObject();
-        window.location.replace('/?' + $.param(form));
+        window.location.href = '/?' + $.param(form);
     }
 });
