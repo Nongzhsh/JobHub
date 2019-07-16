@@ -3,7 +3,6 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using AngleSharp.Html.Parser;
 using JobHub.JobSearch.Contracts;
@@ -11,7 +10,6 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 using RestSharp;
 using Volo.Abp;
-using Volo.Abp.Caching;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Json;
 using Volo.Abp.VirtualFileSystem;
@@ -27,10 +25,8 @@ namespace JobHub.JobSearch.Qiancheng
         private readonly IVirtualFileProvider _virtualFileProvider;
         private readonly IJsonSerializer _jsonSerializer;
         private readonly ILogger<QianchengJobSearcher> _logger;
-        private readonly IDistributedCache<IDictionary<string, string>> _cityDictionaryCache;
 
         public QianchengJobSearcher(ILogger<QianchengJobSearcher> logger,
-            IDistributedCache<IDictionary<string, string>> cityDictionaryCache,
             IVirtualFileProvider virtualFileProvider,
             IJsonSerializer jsonSerializer)
         {
@@ -40,7 +36,6 @@ namespace JobHub.JobSearch.Qiancheng
             };
 
             _logger = logger;
-            _cityDictionaryCache = cityDictionaryCache;
             _virtualFileProvider = virtualFileProvider;
             _jsonSerializer = jsonSerializer;
         }
@@ -49,7 +44,7 @@ namespace JobHub.JobSearch.Qiancheng
         {
             try
             {
-                var cityCodes = await GetCityCodes(input.City);
+                var cityCodes = GetCityCodes(input.City);
                 var request = new RestRequest();
                 //request.AddParameter("salary", "*"); //TODO: 实现自定义
                 request.AddParameter("keyword", input.Keyword);
@@ -91,7 +86,7 @@ namespace JobHub.JobSearch.Qiancheng
             }
         }
 
-        private async Task<string> GetCityCodes(string city)
+        private string GetCityCodes(string city)
         {
             var cityCodes = city;
             try
@@ -100,8 +95,7 @@ namespace JobHub.JobSearch.Qiancheng
                 {
                     var file = _virtualFileProvider.GetFileInfo("/JobHub/JobSearch/Qiancheng/city-list.json");
                     var fileContent = file.ReadAsString();
-                    var list = _jsonSerializer.Deserialize<IDictionary<string, string>>(fileContent);
-                    CityDictionary = list.Any() ? list : await GetCityDictionaryForm51();
+                    CityDictionary = _jsonSerializer.Deserialize<IDictionary<string, string>>(fileContent);
                 }
 
                 if (CityDictionary.Any() && !city.IsNullOrWhiteSpace())
@@ -116,30 +110,6 @@ namespace JobHub.JobSearch.Qiancheng
                 throw new BusinessException("Qiancheng_002", e.Message, e.StackTrace, e.InnerException);
             }
             return cityCodes;
-        }
-
-        private async Task<IDictionary<string, string>> GetCityDictionaryForm51()
-        {
-            var cacheKey = $"Qiancheng@CityDictionary";
-            var output = await _cityDictionaryCache.GetOrAddAsync(
-                cacheKey,
-                factory: async () =>
-                {
-                    var cityDictionary = new ConcurrentDictionary<string, string>();
-                    const string areaArrayUrl = "https://js.51jobcdn.com/in/js/2016/layer/area_array_c.js";
-                    _client.BaseUrl = new Uri(areaArrayUrl);
-                    var response = await _client.ExecuteGetTaskAsync(new RestRequest());
-                    var content = Encoding.GetEncoding("GBK").GetString(response.RawBytes);
-                    content = Regex.Match(content, @"(?<=\{)[^}]*(?=\})").Value;
-                    var items = content.Replace("\"", "").Split(',').Select(x => x.Split(":"));
-                    foreach (var item in items)
-                    {
-                        cityDictionary[item[1]] = item[0].Trim();
-                    }
-                    return cityDictionary;
-                }
-            );
-            return output;
         }
     }
 }
