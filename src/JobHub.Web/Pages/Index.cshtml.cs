@@ -25,7 +25,7 @@ namespace JobHub.Web.Pages
         public string City { get; set; } = "广州";
 
         [BindProperty(SupportsGet = true)]
-        public string JobSource { get; set; }
+        public string JobSource { get; set; } = "前程无忧";
 
         public PagerModel PagerModel { get; set; }
 
@@ -40,8 +40,6 @@ namespace JobHub.Web.Pages
 
         public async Task OnGetAsync(int currentPage = 1)
         {
-            JobSource = JobSource ?? JobSourceItems.FirstOrDefault()?.Value;
-
             var input = new GetJobsInput
             {
                 Keyword = Keyword,
