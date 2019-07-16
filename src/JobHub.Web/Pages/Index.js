@@ -28,8 +28,7 @@ $(function () {
     });
 
     $('#clearCache').click(function () {
-        var cacheKey = $(this).data('cacheKey');
-        jobHub.jobSearch.clearCache(cacheKey).done(function () {
+        jobHub.jobSearch.clearAllCache().done(function () {
             ReSearch();
         });
     });

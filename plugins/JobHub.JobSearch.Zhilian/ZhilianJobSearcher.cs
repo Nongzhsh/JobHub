@@ -96,7 +96,6 @@ namespace JobHub.JobSearch.Zhilian
             }
         }
 
-
         private string GetCityCodes(string city)
         {
             var cityCodes = city;
@@ -119,7 +118,7 @@ namespace JobHub.JobSearch.Zhilian
             catch (Exception e)
             {
                 _logger.LogException(e);
-                throw new BusinessException("Liepin_002", e.Message, e.StackTrace, e.InnerException);
+                throw new BusinessException("Zhilian_002", e.Message, e.StackTrace, e.InnerException);
             }
             return cityCodes;
         }
@@ -129,7 +128,11 @@ namespace JobHub.JobSearch.Zhilian
             foreach (var item in data)
             {
                 CityDictionary[item.v.ToString()] = item.n.ToString();
-                InitCityDictionary(item.s);
+
+                if (item.s != null)
+                {
+                    InitCityDictionary(item.s);
+                }
             }
         }
     }

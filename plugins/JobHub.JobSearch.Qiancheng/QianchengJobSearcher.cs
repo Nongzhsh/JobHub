@@ -63,7 +63,7 @@ namespace JobHub.JobSearch.Qiancheng
 
                 const string baseUrl = "https://search.51job.com/jobsearch/search_result.php";
                 _client.BaseUrl = new Uri(baseUrl);
-                var response = await _client.ExecuteGetTaskAsync<dynamic>(request);
+                var response = await _client.ExecuteGetTaskAsync(request);
                 var htmlString = Encoding.GetEncoding("GBK").GetString(response.RawBytes);
                 var htmlParser = new HtmlParser();
                 var document = htmlParser.ParseDocument(htmlString);

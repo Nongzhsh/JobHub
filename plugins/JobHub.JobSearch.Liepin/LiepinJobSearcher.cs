@@ -100,7 +100,6 @@ namespace JobHub.JobSearch.Liepin
             }
         }
 
-
         private string GetCityCodes(string city)
         {
             var cityCodes = city;

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using JobHub.EntityFrameworkCore;
+using JobHub.JobSearch.Boss;
 using JobHub.JobSearch.Liepin;
 using JobHub.JobSearch.Qiancheng;
 using JobHub.JobSearch.Zhilian;
@@ -37,6 +38,7 @@ using Volo.Abp.VirtualFileSystem;
 namespace JobHub.Web
 {
     [DependsOn(
+        typeof(JobHubJobSearchBossModule),
         typeof(JobHubJobSearchZhilianModule),
         typeof(JobHubJobSearchLiepinModule),
         typeof(JobHubJobSearchQianchengModule),

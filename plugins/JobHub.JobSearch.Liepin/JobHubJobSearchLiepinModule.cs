@@ -1,11 +1,11 @@
 using Volo.Abp.Modularity;
 using JobHub.JobSearch.Contracts;
-using Volo.Abp.Caching;
+using Volo.Abp.Json;
 using Volo.Abp.VirtualFileSystem;
 
 namespace JobHub.JobSearch.Liepin
 {
-    [DependsOn(typeof(AbpCachingModule))]
+    [DependsOn(typeof(AbpJsonModule))]
     [DependsOn(typeof(AbpVirtualFileSystemModule))]
     [DependsOn(typeof(JobHubJobSearchContractsModule))]
     public class JobHubJobSearchLiepinModule : AbpModule

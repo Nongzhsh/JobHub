@@ -22,14 +22,22 @@ namespace JobHub
             _jobSearchOptions = options.Value;
         }
 
-        public async Task ClearCacheAsync(string cacheKey)
+        public async Task ClearAllCacheAsync()
         {
-            var prefix = cacheKey.Left(cacheKey.LastIndexOf('@'));
-            var keys = _cacheKeyDict.Keys.Where(x => x.StartsWith(prefix)).ToList();
+            var keys = _cacheKeyDict.Keys.ToList();
             foreach (var key in keys)
             {
                 await _jobListCache.RemoveAsync(key);
                 _cacheKeyDict.Remove(key);
+            }
+        }
+
+        public async Task ClearCacheAsync(string cacheKey)
+        {
+            if (_cacheKeyDict.ContainsKey(cacheKey))
+            {
+                await _jobListCache.RemoveAsync(cacheKey);
+                _cacheKeyDict.Remove(cacheKey);
             }
         }
 
