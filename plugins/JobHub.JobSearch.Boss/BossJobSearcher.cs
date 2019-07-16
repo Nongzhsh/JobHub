@@ -57,9 +57,8 @@ namespace JobHub.JobSearch.Boss
                 const string baseUrl = "https://www.zhipin.com/job_detail/";
                 _client.BaseUrl = new Uri(baseUrl);
                 var response = await _client.ExecuteGetTaskAsync(request);
-                var htmlString = response.Content;
                 var htmlParser = new HtmlParser();
-                var document = htmlParser.ParseDocument(htmlString);
+                var document = htmlParser.ParseDocument(response.Content);
                 var jobInfoElements = document.QuerySelectorAll(".job-list ul li");
 
                 var jobs = jobInfoElements.Select(t =>

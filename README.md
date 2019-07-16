@@ -6,5 +6,7 @@
   - [``RestSharp``](https://github.com/restsharp/RestSharp) 作 ``HttpClient``；
   - [``AngleSharp``](https://github.com/AngleSharp/AngleSharp) 作 ``HTML``  解析器。
 
+## 仅供学习交流，请勿非法使用。
 
-# 截图
+## 截图
+![](_screenshots/jobhub01.png)
