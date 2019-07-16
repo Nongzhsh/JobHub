@@ -43,6 +43,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\plugins\JobHub.JobSearch.Boss\JobHub.JobSearch.Boss.csproj" />
+    <ProjectReference Include="..\..\plugins\JobHub.JobSearch.Lagou\JobHub.JobSearch.Lagou.csproj" />
     <ProjectReference Include="..\..\plugins\JobHub.JobSearch.Liepin\JobHub.JobSearch.Liepin.csproj" />
     <ProjectReference Include="..\..\plugins\JobHub.JobSearch.Qiancheng\JobHub.JobSearch.Qiancheng.csproj" />
     <ProjectReference Include="..\..\plugins\JobHub.JobSearch.Zhilian\JobHub.JobSearch.Zhilian.csproj" />

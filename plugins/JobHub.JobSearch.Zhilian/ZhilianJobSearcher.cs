@@ -18,7 +18,7 @@ namespace JobHub.JobSearch.Zhilian
     [JobSearcherName("智联招聘")]
     public class ZhilianJobSearcher : IJobSearcher, ISingletonDependency
     {
-        public static IDictionary<string, string> CityDictionary = new ConcurrentDictionary<string, string>();
+        protected static IDictionary<string, string> CityDictionary = new ConcurrentDictionary<string, string>();
 
         private readonly IRestClient _client;
         private readonly IClock _clock;

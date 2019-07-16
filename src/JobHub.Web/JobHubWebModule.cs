@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using JobHub.EntityFrameworkCore;
 using JobHub.JobSearch.Boss;
+using JobHub.JobSearch.Lagou;
 using JobHub.JobSearch.Liepin;
 using JobHub.JobSearch.Qiancheng;
 using JobHub.JobSearch.Zhilian;
@@ -38,6 +39,7 @@ using Volo.Abp.VirtualFileSystem;
 namespace JobHub.Web
 {
     [DependsOn(
+        typeof(JobHubJobSearchLagouModule),
         typeof(JobHubJobSearchBossModule),
         typeof(JobHubJobSearchZhilianModule),
         typeof(JobHubJobSearchLiepinModule),

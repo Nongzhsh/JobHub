@@ -12,7 +12,8 @@ namespace JobHub
 {
     public class JobSearchAppService : JobHubAppService, IJobSearchAppService
     {
-        private readonly IDictionary<string, string> _cacheKeyDict = new ConcurrentDictionary<string, string>();
+        protected static IDictionary<string, string> CacheKeyDict = new ConcurrentDictionary<string, string>();
+
         private readonly IDistributedCache<JobListResultDto> _jobListCache;
         private readonly JobSearchOptions _jobSearchOptions;
         public JobSearchAppService(IDistributedCache<JobListResultDto> jobListCache,
@@ -24,20 +25,20 @@ namespace JobHub
 
         public async Task ClearAllCacheAsync()
         {
-            var keys = _cacheKeyDict.Keys.ToList();
+            var keys = CacheKeyDict.Keys.ToList();
             foreach (var key in keys)
             {
                 await _jobListCache.RemoveAsync(key);
-                _cacheKeyDict.Remove(key);
+                CacheKeyDict.Remove(key);
             }
         }
 
         public async Task ClearCacheAsync(string cacheKey)
         {
-            if (_cacheKeyDict.ContainsKey(cacheKey))
+            if (CacheKeyDict.ContainsKey(cacheKey))
             {
                 await _jobListCache.RemoveAsync(cacheKey);
-                _cacheKeyDict.Remove(cacheKey);
+                CacheKeyDict.Remove(cacheKey);
             }
         }
 
@@ -57,7 +58,7 @@ namespace JobHub
                     var jobList = await jobSearcher.SearchAsync(input);
                     jobList.CacheKey = cacheKey;
 
-                    _cacheKeyDict[cacheKey] = cacheKey;
+                    CacheKeyDict[cacheKey] = cacheKey;
 
                     return jobList;
                 },

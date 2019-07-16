@@ -18,7 +18,7 @@ namespace JobHub.JobSearch.Boss
     [JobSearcherName("Boss招聘")]
     public class BossJobSearcher : IJobSearcher, ISingletonDependency
     {
-        public static IDictionary<string, string> CityDictionary = new ConcurrentDictionary<string, string>();
+        protected static IDictionary<string, string> CityDictionary = new ConcurrentDictionary<string, string>();
 
         private readonly IRestClient _client;
         private readonly IVirtualFileProvider _virtualFileProvider;

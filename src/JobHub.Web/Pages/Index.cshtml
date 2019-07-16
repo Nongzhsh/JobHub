@@ -46,30 +46,32 @@
         </div>
     </div>
 </form>
+<hr />
+<div class="job-list">
+    @for (var i = 0; i < Model.Jobs.Items.Count; i++)
+    {
+        var job = Model.Jobs.Items[i];
+        <div class="row jobItem text-muted">
+            <div class="col-md-auto col-sm-12" data-url="@job.Url">
+                <h5>
+                    <span class="badge badge-warning">@job.Salary</span>
+                    <a href="@job.Url" target="_blank">@job.Position</a>
+                </h5>
+            </div>
+            <div class="col-md-auto col-sm-12">
+                <h6>@job.Company</h6>
+            </div>
+            <div class="col-md-auto col-sm-12">
+                <span class="badge badge-secondary">@job.Education</span>
+                <span class="badge badge-secondary">@job.WorkingYears</span>
+                <cite class="badge badge-secondary">@job.Address</cite>
+                <time class="badge badge-light" title="@job.PublishedTime">@job.PublishedTime</time>
+            </div>
+        </div>
+        <hr />
+    }
+</div>
 
-<hr>
-
-@for (var i = 0; i < Model.Jobs.Items.Count; i++)
-{
-    var job = Model.Jobs.Items[i];
-    <div class="row jobItem text-muted border-bottom padding-top-8">
-        <div class="col-md-auto col-sm-12" data-url="@job.Url">
-            <h5>
-                <span class="badge badge-warning">@job.Salary</span>
-                <a href="@job.Url" target="_blank">@job.Position</a>
-            </h5>
-        </div>
-        <div class="col-md-auto col-sm-12">
-            <h6>@job.Company</h6>
-        </div>
-        <div class="col-md-auto col-sm-12">
-            <span class="badge badge-secondary">@job.Education</span>
-            <span class="badge badge-secondary">@job.WorkingYears</span>
-            <cite class="badge badge-secondary">@job.Address</cite>
-            <time class="badge badge-light" title="@job.PublishedTime">@job.PublishedTime</time>
-        </div>
-    </div>
-}
 @if (Model.Jobs.Items.Any())
 {
     <my-paginator model="@Model.PagerModel" show-info="false" asp-route-keyword="@Model.Keyword" asp-route-city="@Model.City" asp-route-jobSource="@Model.JobSource"></my-paginator>

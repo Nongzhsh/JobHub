@@ -19,7 +19,7 @@ namespace JobHub.JobSearch.Qiancheng
     [JobSearcherName("前程无忧")]
     public class QianchengJobSearcher : IJobSearcher, ISingletonDependency
     {
-        public static IDictionary<string, string> CityDictionary = new ConcurrentDictionary<string, string>();
+        protected static IDictionary<string, string> CityDictionary = new ConcurrentDictionary<string, string>();
 
         private readonly IRestClient _client;
         private readonly IVirtualFileProvider _virtualFileProvider;

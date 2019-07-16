@@ -20,7 +20,7 @@ namespace JobHub.JobSearch.Liepin
     [JobSearcherName("猎聘招聘")]
     public class LiepinJobSearcher : IJobSearcher, ISingletonDependency
     {
-        public static IDictionary<string, string[]> CityDictionary = new ConcurrentDictionary<string, string[]>();
+        protected static IDictionary<string, string[]> CityDictionary = new ConcurrentDictionary<string, string[]>();
 
         private readonly IRestClient _client;
         private readonly ILogger<LiepinJobSearcher> _logger;

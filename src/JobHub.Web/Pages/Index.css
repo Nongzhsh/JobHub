@@ -18,13 +18,10 @@
         background-color: #555;
     }
 
-.jobItem:hover, .jobItem:active {
-    background-color: #eed1b6;
+.jobItem h5, h6 {
+    margin: 0 !important;
 }
 
-.padding-top-8 {
-    padding-top: 8px !important;
-}
-.margin-left-10 {
-    margin-left: 10px !important;
+.jobItem:hover, .jobItem:active {
+    background-color: #eed1b6;
 }

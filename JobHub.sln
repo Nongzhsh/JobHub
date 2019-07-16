@@ -51,6 +51,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Zhilian", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Boss", "plugins\JobHub.JobSearch.Boss\JobHub.JobSearch.Boss.csproj", "{8F8911F0-00CD-456E-8D72-6BD8F49EB3FF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JobHub.JobSearch.Lagou", "plugins\JobHub.JobSearch.Lagou\JobHub.JobSearch.Lagou.csproj", "{50964161-C47F-4978-A492-50CD1CCFCB2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{8F8911F0-00CD-456E-8D72-6BD8F49EB3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F8911F0-00CD-456E-8D72-6BD8F49EB3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F8911F0-00CD-456E-8D72-6BD8F49EB3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50964161-C47F-4978-A492-50CD1CCFCB2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50964161-C47F-4978-A492-50CD1CCFCB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50964161-C47F-4978-A492-50CD1CCFCB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50964161-C47F-4978-A492-50CD1CCFCB2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,6 +173,7 @@ Global
 		{ADAE379A-29D6-4D95-91AB-F415EF4017FC} = {1A7FB10F-7990-460B-906B-4F114706FA67}
 		{05C57B2D-CD1A-4F1F-B55E-DF5A725B0F79} = {1A7FB10F-7990-460B-906B-4F114706FA67}
 		{8F8911F0-00CD-456E-8D72-6BD8F49EB3FF} = {1A7FB10F-7990-460B-906B-4F114706FA67}
+		{50964161-C47F-4978-A492-50CD1CCFCB2A} = {1A7FB10F-7990-460B-906B-4F114706FA67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}
